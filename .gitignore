@@ -1,0 +1,47 @@
+# ---------- 真实数据（绝不提交） ----------
+data/raw/
+data/processed/
+data/logs/
+
+# 保留随仓库发布的虚构示例数据
+!data/example/
+!data/example/**
+
+# ---------- 生成的报告（只保留示例） ----------
+output/*
+!output/example/
+!output/example/**
+
+# ---------- 密钥与账号 ----------
+.env
+.env.*
+*.env
+secrets.json
+credentials.json
+
+# ---------- 浏览器配置 / 运行时状态 ----------
+.runtime/
+.playwright-mcp/
+user_data/
+user-data/
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# ---------- 日志 ----------
+*.log
+logs/
+
+# ---------- 编辑器 / 系统 ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

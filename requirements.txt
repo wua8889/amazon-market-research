@@ -1,0 +1,4 @@
+# 抓取层依赖（只有运行 scripts/scrape_*.py 时需要）
+# 分析层（prepare_data.py / market_analysis.py / analyze_reviews.py / render_report_html.py）
+# 只依赖 Python 标准库，无需安装任何包。
+playwright>=1.40

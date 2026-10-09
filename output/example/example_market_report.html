@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>示例市场调研报告（虚构数据）</title>
+<style>
+:root { --ink:#1a1a1a; --muted:#6b6b6b; --line:#dcdcdc; --accent:#2f6b4f; --soft:#f6f8f6; --bg:#ffffff; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB",
+               "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 860px; margin: 0 auto; padding: 56px 40px 80px; }
+h1 { font-size: 27px; margin: 0 0 22px; }
+h2 { font-size: 21px; margin: 42px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); page-break-after: avoid; }
+h3 { font-size: 17px; margin: 28px 0 12px; color: var(--accent); page-break-after: avoid; }
+p { margin: 12px 0; }
+blockquote {
+  margin: 18px 0; padding: 12px 18px; background: var(--soft);
+  border-left: 4px solid var(--accent); color: var(--muted);
+}
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; page-break-inside: avoid; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+code { background: var(--soft); padding: 1px 5px; border-radius: 3px; font-size: 13px;
+       font-family: Consolas, "Cascadia Mono", monospace; }
+pre { background: var(--soft); padding: 14px 16px; overflow-x: auto; border: 1px solid var(--line); }
+pre code { background: none; padding: 0; }
+ul, ol { margin: 12px 0; padding-left: 26px; }
+hr { border: none; border-top: 1px solid var(--line); margin: 34px 0; }
+a { color: var(--accent); }
+@media print { .page { padding: 0; } h2 { page-break-after: avoid; } }
+</style>
+</head>
+<body>
+<div class="page">
+<h1>示例市场调研报告（虚构数据）</h1>
+<blockquote><strong>本报告由 10 条虚构数据生成，仅用于演示本工具的输出格式，不代表任何真实市场。</strong> 数据文件：<code>data/example/example_bsr_top10.csv</code>，所有 ASIN 均为 <code>B0EXAMPLE**</code> 占位符。</blockquote>
+<table><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>站点</td><td>Amazon US（示例）</td></tr><tr><td>数据时间</td><td>2026-09（示例）</td></tr><tr><td>数据来源</td><td><code>data/example/example_bsr_top10.csv</code></td></tr><tr><td>样本量</td><td>榜单 10 条 → 清洗后保留 9 条</td></tr><tr><td>生成脚本</td><td><code>scripts/prepare_data.py</code> + <code>scripts/market_analysis.py</code></td></tr></tbody></table>
+<hr />
+<h2>一、结论速览</h2>
+<table><thead><tr><th>指标</th><th>值</th></tr></thead><tbody><tr><td>估算月销量</td><td>69,865 件</td></tr><tr><td>估算月销售额</td><td>$2,629,233</td></tr><tr><td>平均评分</td><td>4.46</td></tr><tr><td>Review 中位数</td><td>2,340</td></tr><tr><td>前 3 名销售额占比</td><td>46.8%</td></tr><tr><td>判断</td><td><strong>TEST</strong>：优先测试 $30–50 价格带</td></tr></tbody></table>
+<blockquote><strong>声明</strong>：销量与销售额为 BSR 换算的<strong>估算值</strong>，仅用于判断数量级与相对关系，不可用于财务测算。</blockquote>
+<h2>二、价格带分析</h2>
+<table><thead><tr><th>价格带</th><th>销量占比</th><th>销售额占比</th><th>平均Review</th><th>新品机会</th><th>建议</th></tr></thead><tbody><tr><td>$10–20</td><td>9.5%</td><td>5.0%</td><td>8,750</td><td>低</td><td>销量与销额双低，Review 门槛反而最高，回避</td></tr><tr><td>$20–30</td><td>26.9%</td><td>18.7%</td><td>2,709</td><td>较高</td><td>评分最高、Review 门槛较低，可作备选</td></tr><tr><td>$30–50</td><td>45.6%</td><td>46.0%</td><td>1,396</td><td>高</td><td>体量与门槛最平衡，主力切入区间</td></tr><tr><td>$50+</td><td>18.0%</td><td>30.3%</td><td>2,215</td><td>中</td><td>单价高、销量少，需差异化与品牌支撑</td></tr></tbody></table>
+<p><strong>解读</strong>：$30–50 同时占据最大销量份额（45.6%）与最高销售额份额（46.0%）， 而 Review 中位数（1,396）却是四档中最低，说明该价格带的进入门槛相对温和。 $10–20 虽然单价低，但 Review 中位数高达 8,750，属于老链接把持的成熟区间。</p>
+<h2>三、Review 门槛</h2>
+<table><thead><tr><th>榜单区间</th><th>产品数</th><th>Review 中位数</th><th>最低</th><th>最高</th><th>月销中位数</th></tr></thead><tbody><tr><td>BSR 1–10</td><td>9</td><td>2,340</td><td>310</td><td>8,750</td><td>7,081</td></tr></tbody></table>
+<p><strong>数据不足说明</strong>：示例样本只有 9 条且全部落在 BSR 1–10 区间， 无法拆分出「BSR 11–25 / 26–50 / 51–100」的区间对比。 真实使用时请抓取完整前 100 名，否则<strong>样本不足，结论仅供参考</strong>。</p>
+<h2>四、低 Review 高销量代表</h2>
+<table><thead><tr><th>ASIN</th><th>榜单排名</th><th>价格</th><th>Review 数</th><th>估算月销</th><th>估算月销额</th></tr></thead><tbody><tr><td>B0EXAMPLE04</td><td>#4</td><td>$37.39</td><td>310</td><td>7,691</td><td>$287,566</td></tr><tr><td>B0EXAMPLE02</td><td>#2</td><td>$35.99</td><td>452</td><td>9,943</td><td>$357,849</td></tr></tbody></table>
+<p><strong>解读</strong>：这两款产品的评论数（310 / 452）远低于样本中位数 2,340， 但估算月销量都在 7,000 件以上，说明该价格带存在「低 Review 也能起量」的窗口。 它们都属于 $30–50 区间，与第二节的推荐一致。</p>
+<h2>五、标题关键词分布</h2>
+<table><thead><tr><th>关键词</th><th>命中产品数</th><th>估算月销</th><th>估算月销额</th><th>均价</th></tr></thead><tbody><tr><td>storage</td><td>5</td><td>45,053</td><td>$1,721,790</td><td>$39.59</td></tr><tr><td>organizer</td><td>3</td><td>20,258</td><td>$550,679</td><td>$26.46</td></tr><tr><td>bin</td><td>3</td><td>26,241</td><td>$835,256</td><td>$32.79</td></tr><tr><td>stackable</td><td>2</td><td>15,638</td><td>$545,727</td><td>$34.49</td></tr><tr><td>set</td><td>2</td><td>12,776</td><td>$683,336</td><td>$51.48</td></tr><tr><td>pack</td><td>2</td><td>22,798</td><td>$717,660</td><td>$31.99</td></tr></tbody></table>
+<p><strong>解读</strong>：<code>storage</code> 是覆盖最广的大词；<code>stackable</code> 与 <code>pack</code> 类产品均价较低但 Review 中位数也低， 属于可用组合装、堆叠结构做差异化的方向。</p>
+<h2>六、竞争集中度</h2>
+<table><thead><tr><th>指标</th><th>值</th></tr></thead><tbody><tr><td>前 3 名销售额占比</td><td>46.8%</td></tr><tr><td>前 10 名销售额占比</td><td>100.0%</td></tr><tr><td>核心样本估算月销售额</td><td>$2,629,233</td></tr><tr><td>核心样本估算月销量</td><td>69,865 件</td></tr></tbody></table>
+<p><strong>解读</strong>：示例样本仅 9 条，前 10 名即覆盖全部样本，集中度指标在真实场景中才有意义。 真实使用时，前 10 名占比 ≥ 70% 视为垄断（阈值见 <code>config/config.yaml</code>）。</p>
+<h2>七、卖家结构</h2>
+<p><strong>数据不足</strong>：示例数据只包含榜单页字段，没有品牌 / 卖家 / 注册地信息。</p>
+<p>要补齐这一节，需要额外运行：</p>
+<pre><code>python scripts/scrape_amazon_details.py
+python scripts/scrape_amazon_sellers.py
+python scripts/market_analysis.py</code></pre>
+<h2>八、下一步行动</h2>
+<ol><li>用 <code>scrape_amazon_bsr.py</code> 抓取完整前 100 名，替换示例数据。</li><li>运行 <code>scrape_amazon_details.py</code> 与 <code>scrape_amazon_sellers.py</code>，补齐品牌与卖家结构。</li><li>针对 $30–50 区间的候选 ASIN 抓取差评，用 <code>analyze_reviews.py</code> 找痛点。</li><li>复核 <code>config/config.yaml</code> 中的阈值是否符合目标站点的实际情况。</li></ol>
+<hr />
+<p><em>本报告由 <code>scripts/render_report_html.py</code> 可渲染为 HTML/PDF；示例数据与产物均为虚构内容。</em></p>
+</div>
+</body>
+</html>

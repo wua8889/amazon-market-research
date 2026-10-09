@@ -1,0 +1,54 @@
+# config/config.yaml —— 站点、类目与判断阈值（示例值，请按实际情况修改）
+# 所有阈值集中在此，脚本不应硬编码业务阈值。
+
+target:
+  site: "US"            # 目标站点：US / UK / DE / JP ...
+  category: "Home & Kitchen > Storage & Organization"   # 示例类目
+  currency: "USD"
+  report_month: "2026-09"
+  report_owner: "Owner"
+
+thresholds:
+  market_capacity:
+    min_avg_monthly_sales_top100: 300    # 榜单前 100 平均月销 >= 300 单才值得做
+
+  competition:
+    concentration_top_n: 10              # 头部样本数
+    monopoly_share: 0.70                 # 头部销量占比 >= 70% 视为垄断
+    review_barrier_avg: 500              # 平均评论数 >= 500，新品突围难
+    cpc_red_ocean_usd: 2.0               # 核心词 CPC > $2 且利润不支撑 = 红海
+
+  profit:
+    gross_margin_min: 0.30               # 毛利 >= 30%
+    net_margin_min: 0.15                 # 净利 >= 15%
+    return_rate_max: 0.10                # 退货率 < 10%
+    cost_items:                          # 成本核算必须覆盖
+      - 采购成本
+      - 头程运费
+      - FBA配送费
+      - 平台佣金
+      - 广告费
+      - 退货损耗
+
+  new_product:
+    launch_window_months: 12             # 最近 6-12 个月上榜视为新品
+    low_review_threshold: 100            # “低 Review”判定线
+
+  data_quality:
+    numeric_parse_min: 0.98              # 数值列可解析率下限
+    asin_dup_max: 0.0                    # 允许的重复 ASIN 率
+    min_rows_per_table: 20               # 低于此值标注“样本不足”
+
+# 价格带自动分组
+price_bands:
+  auto: true
+  method: "quantile"      # quantile | equal_width | manual
+  min_bands: 3
+  max_bands: 5
+  manual_breaks: []       # 手动分组时填写，如 [0, 15, 30, 60, 999]
+
+# 销售估算
+sales_estimation:
+  source: "BSR power-law baseline (Amazon US, Home & Kitchen)"
+  calibrated_marketplaces: ["US"]        # 只有美国站经过标定
+  note: "估算值，仅用于判断数量级，不可用于财务测算"
